@@ -1,0 +1,14 @@
+name: Candidate CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+
+jobs:
+  use-template:
+    uses: talentis-io/ci-cd-templates/.github/workflows/react-run.yml@master
+    with:
+      repo_name: ${{ github.event.repository.name }}
+      branch_name: ${{ github.ref_name }}
+    secrets: inherit
